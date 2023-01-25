@@ -14,9 +14,7 @@ async function signin(req, res) {
   }
 
   const passwordCompare = await bcrypt.compare(password, user.password);
-  if (!user.verify) {
-    throw requestError(401, "Email not verify");
-  }
+
   if (!passwordCompare) {
     throw requestError(401, "Email or password is wrong");
   }
@@ -25,6 +23,7 @@ async function signin(req, res) {
   const payload = { id: user._id };
 
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "6h" });
+
   res.status(201).json({
     token,
     user: {
@@ -32,7 +31,6 @@ async function signin(req, res) {
       name: user.name,
       email: user.email,
     },
-    verify: user.verify,
   });
 }
 module.exports = signin;

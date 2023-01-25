@@ -4,14 +4,12 @@ const signup = require("./signup");
 const logout = require("./logout");
 const getCurrent = require("./getCurrent");
 
-const verifyEmail = require("./verifyEmail");
-const resendVerifyEmail = require("./resendVerifyEmail");
+const googleAuth = require("./googleAuth");
 
 module.exports = {
   signin,
   signup,
   logout,
   getCurrent,
-  verifyEmail,
-  resendVerifyEmail,
+  googleAuth,
 };

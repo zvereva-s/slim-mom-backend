@@ -28,14 +28,6 @@ const userSchema = new Schema(
       type: String,
       default: "",
     },
-    verify: {
-      type: Boolean,
-      default: false,
-    },
-    verificationToken: {
-      type: String,
-      required: [true, "Verify token is required"],
-    },
   },
   { versionKey: false, timestamps: true }
 );
@@ -67,12 +59,6 @@ const registerTemplate = joi.object({
   token: joi.string(),
 });
 const loginTemplate = joi.object({
-  password: joi.string().required().messages({
-    "string.empty": `{{#label}} cannot be an empty field`,
-    "string.min": `{{#label}} min lenght 6`,
-    "string.pattern.base": `{{#label}} with value {:[.]} fails to match the required pattern: Minimum six characters, at least one letter, one number and one special character'`,
-    "any.required": `{{#label}} is a required field`,
-  }),
   email: joi.string().pattern(emailRegexp).required().messages({
     "string.base": `{{#label}}should be a type of 'text'`,
     "string.empty": `{{#label}} cannot be an empty field`,
@@ -81,14 +67,16 @@ const loginTemplate = joi.object({
     "string.pattern.name": `{{#label}} with value {:[.]} fails to match the 'email@mail.com' pattern`,
     "any.required": `"email" is a required field`,
   }),
-});
-const verifyEmailTemplate = joi.object({
-  email: joi.string().required(),
+  password: joi.string().required().messages({
+    "string.empty": `{{#label}} cannot be an empty field`,
+    "string.min": `{{#label}} min lenght 6`,
+    "string.pattern.base": `{{#label}} with value {:[.]} fails to match the required pattern: Minimum six characters, at least one letter, one number and one special character'`,
+    "any.required": `{{#label}} is a required field`,
+  }),
 });
 
 const templates = {
   registerTemplate,
   loginTemplate,
-  verifyEmailTemplate,
 };
 module.exports = { User, templates };

@@ -14,31 +14,16 @@ async function signup(req, res) {
 
   const hashPassword = await bcrypt.hash(password, 10);
 
-  const verificationToken = bsonId();
   const result = await User.create({
     name,
     email,
     password: hashPassword,
-    verificationToken,
   });
-
-  const mail = {
-    to: email,
-    subject: "Confirm the registration on contacts application",
-    html: `<a href="${BASE_URL}/api/auth/verify/${verificationToken}" target="_blank">Push to confirm</a>`,
-  };
-
-  await sendMail
-    .sendMail(mail)
-    .then(() => console.log("Email send success"))
-    .catch((error) => console.log(error.message));
 
   res.status(201).json({
     user: {
       name: result.name,
       email: result.email,
-      verify: result.verify,
-      verificationToken: result.verificationToken,
     },
   });
 }
