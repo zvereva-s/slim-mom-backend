@@ -5,6 +5,7 @@ const logout = require("./logout");
 const getCurrent = require("./getCurrent");
 
 const googleAuth = require("./googleAuth");
+const facebookAuth = require("./facebookAuth");
 
 module.exports = {
   signin,
@@ -12,4 +13,5 @@ module.exports = {
   logout,
   getCurrent,
   googleAuth,
+  facebookAuth,
 };

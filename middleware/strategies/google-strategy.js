@@ -1,29 +1,30 @@
 const { Strategy } = require("passport-google-oauth2");
 const { User } = require("../../models/user");
-const passport = require("passport");
+
+const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_CALLBACK_URL, ARR_URL } =
+  process.env;
+
+const callbackURL = `${ARR_URL}${GOOGLE_CALLBACK_URL}`;
 
 const googleParams = {
-  clientID: `${process.env.GOOGLE_CLIENT_ID}`,
-  clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`,
-  // callbackURL: `${process.env.APP_URL}${process.env.GOOGLE_CALLBACK_URL}`,
-  callbackURL: `${process.env.GOOGLE_CALLBACK_URL}`,
-
+  clientID: `${GOOGLE_CLIENT_ID}`,
+  clientSecret: `${GOOGLE_CLIENT_SECRET}`,
+  callbackURL,
   passReqToCallback: true,
 };
+
 const googleCallback = async (
   req,
   accessToken,
   refreshToken,
   profile,
   done
-  // cb
 ) => {
   try {
     const { email, displayName } = profile;
     const user = await User.findOne({ email });
-    if (!user) {
+    if (user) {
       return done(null, user);
-      // req.user = user;
     }
     const newUser = await User.create({ email, name: displayName });
     done(null, newUser);
@@ -31,5 +32,6 @@ const googleCallback = async (
     done(error, false);
   }
 };
+
 const googleStrategy = new Strategy(googleParams, googleCallback);
 module.exports = googleStrategy;

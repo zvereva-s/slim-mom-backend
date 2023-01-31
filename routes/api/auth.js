@@ -38,7 +38,7 @@ router.get(
     scope: ["email", "profile"],
     session: false,
   }),
-  createTryCatchWrapper(controllers.googleAuth)
+  asyncWrapper(controllers.googleAuth)
 );
 
 module.exports = router;
