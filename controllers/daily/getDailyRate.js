@@ -1,5 +1,6 @@
 const joi = require("joi");
 const countDailyRate = require("../../service/countDailyRate");
+const notAllowedProducts = require("../../db/notAllowedProducts");
 
 const gender = ["female", "male"];
 const physicalActivity = ["1.2", "1.375", "1.55", "1.7", "1.9"];
@@ -21,6 +22,7 @@ async function getDailyRate(req, res) {
 
   res.status(200).json({
     dailyRate,
+    notAllowedProducts,
   });
 }
 
