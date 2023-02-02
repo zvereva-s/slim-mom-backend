@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { SECRET_KEY } = process.env;
 const { User } = require("../models/user");
-const { requestError } = require("../utils/requestError");
+const { requestError } = require("../utils");
 
 async function auth(req, res, next) {
   try {
@@ -13,7 +13,7 @@ async function auth(req, res, next) {
     }
 
     try {
-      const { id } = jwt.verify(token, SECRET_KEY);
+      const { id } = jwt.verify(token, `${SECRET_KEY}`);
       const user = await User.findById(id);
       if (!user) {
         throw requestError(401, "Not authorized");
