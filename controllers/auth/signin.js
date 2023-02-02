@@ -22,7 +22,7 @@ async function signin(req, res) {
   // create token //
   const payload = { id: user._id };
 
-  const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "6h" });
+  const token = jwt.sign(payload, `${SECRET_KEY}`, { expiresIn: "6h" });
 
   res.status(201).json({
     token,
@@ -30,6 +30,7 @@ async function signin(req, res) {
       id: user._id,
       name: user.name,
       email: user.email,
+      healthyData: user.healthyData,
     },
   });
 }
