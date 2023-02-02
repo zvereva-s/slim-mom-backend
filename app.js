@@ -21,9 +21,9 @@ app.use("/api/auth", authRouter);
 app.use("/api/daily", dailyRouter);
 
 // middlewares //
-app.use((req, res) => {
-  res.status(404).json({ message: "Not found" });
-});
+// app.use((req, res) => {
+//   res.status(404).json({ message: "Not found" });
+// });
 app.use((err, req, res, next) => {
   res.status(err.status).json({ message: err.message });
 });
