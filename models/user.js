@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 const joi = require("joi");
 
 const handleMongooseSchemaError = require("../utils/handleMongooseSchemaError");
+const notAllowedProducts = require("../db/notAllowedProducts");
 
 const emailRegexp = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 // const nameRegexp = /^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/;
@@ -27,6 +28,31 @@ const userSchema = new Schema(
     token: {
       type: String,
       default: "",
+    },
+    healthyData: {
+      type: Object,
+      default: {
+        notAllowedProducts: {
+          type: Object,
+          default: notAllowedProducts,
+        },
+        bodyCalculating: {
+          type: Object,
+          default: {
+            age: 0,
+            gender: "",
+            height: 0,
+            physicalActivity: 0,
+            weight: 0,
+            bloodType: 0,
+            desiredWeight: 0,
+          },
+        },
+        dailyRate: {
+          type: String,
+          default: "0",
+        },
+      },
     },
   },
   { versionKey: false, timestamps: true }
