@@ -22,6 +22,7 @@ function countDailyRate(data) {
 }
 
 module.exports = countDailyRate;
+
 /*
 
 Формула для расчета ПБМ выглядит следующим образом:
