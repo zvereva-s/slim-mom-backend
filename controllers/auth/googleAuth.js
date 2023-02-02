@@ -17,14 +17,3 @@ async function googleAuth(req, res) {
   );
 }
 module.exports = googleAuth;
-
-/* 
-backend 
-redirect to main from contoroller
-localhost:3000/?token=token&_id=id
-frontend
-проверем парамс 
-App-> useEffect
-usegueryparams 
---> redux 
-*/
