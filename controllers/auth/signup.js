@@ -1,12 +1,12 @@
 const bcrypt = require("bcryptjs");
 const bsonId = require("bson-objectid");
 
-const { BASE_URL } = process.env;
 const { User } = require("../../models/user");
-const { requestError, sendMail } = require("../../utils");
+const { requestError } = require("../../utils");
 
 async function signup(req, res) {
   const { name, email, password } = req.body;
+
   const user = await User.findOne({ email });
   if (user) {
     throw requestError(409, "Email in use");
@@ -24,6 +24,7 @@ async function signup(req, res) {
     user: {
       name: result.name,
       email: result.email,
+      healthyData: result.healthyData,
     },
   });
 }
