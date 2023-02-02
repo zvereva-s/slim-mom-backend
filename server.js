@@ -4,7 +4,7 @@ const app = require("./app");
 const { DB_HOST } = process.env;
 
 mongoose
-  .connect(DB_HOST)
+  .connect(`${DB_HOST}`)
   .then(() => {
     app.listen(3003);
     console.log("wish u well - in hell ...😂");
