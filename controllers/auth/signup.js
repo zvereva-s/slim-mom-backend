@@ -4,6 +4,8 @@ const bsonId = require("bson-objectid");
 const { User } = require("../../models/user");
 const { requestError } = require("../../utils");
 
+const notAllowedProducts = require("../../db/notAllowedProducts");
+
 async function signup(req, res) {
   const { name, email, password } = req.body;
 
@@ -18,6 +20,19 @@ async function signup(req, res) {
     name,
     email,
     password: hashPassword,
+    healthyData: {
+      notAllowedProducts,
+      bodyCalculating: {
+        age: 0,
+        gender: "",
+        height: 0,
+        physicalActivity: 0,
+        weight: 0,
+        bloodType: 0,
+        desiredWeight: 0,
+      },
+      dailyRate: "0",
+    },
   });
 
   res.status(201).json({
