@@ -13,7 +13,6 @@ async function getDailyRateUser(req, res) {
   });
 
   res.status(200).json({
-    id: result._id,
     healthyData: result.healthyData,
   });
 }
