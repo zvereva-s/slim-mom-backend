@@ -1,5 +1,6 @@
 const { Strategy } = require("passport-google-oauth2");
 const { User } = require("../../models/user");
+const notAllowedProducts = require("../../db/notAllowedProducts");
 
 const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_CALLBACK_URL, APP_URL } =
   process.env;
@@ -29,6 +30,19 @@ const googleCallback = async (
     const newUser = await User.create({
       email,
       name: displayName,
+      healthyData: {
+        notAllowedProducts,
+        bodyCalculating: {
+          age: 0,
+          gender: "",
+          height: 0,
+          physicalActivity: 0,
+          weight: 0,
+          bloodType: 0,
+          desiredWeight: 0,
+        },
+        dailyRate: "0",
+      },
     });
     done(null, newUser);
   } catch (error) {
