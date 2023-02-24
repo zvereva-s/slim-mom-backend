@@ -29,31 +29,6 @@ const userSchema = new Schema(
       type: String,
       default: "",
     },
-    healthyData: {
-      type: Object,
-      default: {
-        notAllowedProducts: {
-          type: Object,
-          default: notAllowedProducts,
-        },
-        bodyCalculating: {
-          type: Object,
-          default: {
-            age: 0,
-            gender: "",
-            height: 0,
-            physicalActivity: 0,
-            weight: 0,
-            bloodType: 0,
-            desiredWeight: 0,
-          },
-        },
-        dailyRate: {
-          type: String,
-          default: "0",
-        },
-      },
-    },
   },
   { versionKey: false, timestamps: true }
 );
