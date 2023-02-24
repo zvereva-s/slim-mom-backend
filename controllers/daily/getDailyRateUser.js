@@ -1,19 +1,23 @@
-const { User } = require("../../models/user");
+const { HealthyData } = require("../../models/healthyData");
+
 const countDailyRate = require("../../service/countDailyRate");
-const notAllowedProducts = require("../../db/notAllowedProducts");
 
 async function getDailyRateUser(req, res) {
-  const { id } = req.params;
-  const { body, user } = req;
+  const owner = req.params.id;
+  const { body } = req;
 
-  const dailyRate = await countDailyRate(body);
+  const dailyRate = countDailyRate(body);
 
-  const result = await User.findByIdAndUpdate(id, {
-    healthyData: { bodyCalculating: body, dailyRate, notAllowedProducts },
+  const result = await HealthyData.findOneAndUpdate({
+    owner,
+    dailyRate,
+    bodyCalculating: body,
   });
 
   res.status(200).json({
-    healthyData: result.healthyData,
+    owner: result.owner,
+    dailyRate,
+    bodyCalculating: body,
   });
 }
 module.exports = getDailyRateUser;
