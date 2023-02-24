@@ -6,6 +6,8 @@ require("dotenv").config();
 // routers //
 const authRouter = require("./routes/api/auth");
 const dailyRouter = require("./routes/api/daily");
+const diaryRouter = require("./routes/api/diary");
+const summaryRouter = require("./routes/api/summary");
 
 // app //
 const app = express();
@@ -19,11 +21,13 @@ app.use(express.static("public"));
 // routes //
 app.use("/api/auth", authRouter);
 app.use("/api/daily", dailyRouter);
+app.use("/api/diary", diaryRouter);
+app.use("/api/summary", summaryRouter);
 
 // middlewares //
-// app.use((req, res) => {
-//   res.status(404).json({ message: "Not found" });
-// });
+app.use((req, res) => {
+  res.status(404).json({ message: "Not found" });
+});
 app.use((err, req, res, next) => {
   res.status(err.status).json({ message: err.message });
 });
