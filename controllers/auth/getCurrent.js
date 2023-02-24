@@ -1,5 +1,10 @@
+const { HealthyData } = require("../../models/healthyData");
+
 async function getCurrent(req, res, next) {
-  const { email, _id, token, name, healthyData } = req.user;
+  const { email, _id, token, name } = req.user;
+  const owner = _id;
+
+  const healthyData = await HealthyData.findOne({ owner });
 
   res.json({
     token,
@@ -7,7 +12,11 @@ async function getCurrent(req, res, next) {
       id: _id,
       name,
       email,
-      healthyData,
+    },
+    healthyData: {
+      owner: healthyData.owner,
+      notAllowedProducts: healthyData.notAllowedProducts,
+      bodyCalculating: healthyData.bodyCalculating,
     },
   });
   next();
