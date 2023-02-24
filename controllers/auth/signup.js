@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const bsonId = require("bson-objectid");
 
 const { User } = require("../../models/user");
+const { HealthyData } = require("../../models/healthyData");
 const { requestError } = require("../../utils");
 
 const notAllowedProducts = require("../../db/notAllowedProducts");
@@ -16,30 +17,35 @@ async function signup(req, res) {
 
   const hashPassword = await bcrypt.hash(password, 10);
 
-  const result = await User.create({
+  const resultUser = await User.create({
     name,
     email,
     password: hashPassword,
-    healthyData: {
-      notAllowedProducts,
-      bodyCalculating: {
-        age: 0,
-        gender: "",
-        height: 0,
-        physicalActivity: 0,
-        weight: 0,
-        bloodType: 0,
-        desiredWeight: 0,
-      },
-      dailyRate: "0",
+  });
+  const resultHealthyData = await HealthyData.create({
+    owner: resultUser._id,
+    notAllowedProducts,
+    bodyCalculating: {
+      age: 0,
+      gender: "",
+      height: 0,
+      physicalActivity: 0,
+      weight: 0,
+      bloodType: 0,
+      desiredWeight: 0,
     },
+    dailyRate: "0",
   });
 
   res.status(201).json({
     user: {
-      name: result.name,
-      email: result.email,
-      healthyData: result.healthyData,
+      name: resultUser.name,
+      email: resultUser.email,
+    },
+    healthyData: {
+      notAllowedProducts: resultHealthyData.notAllowedProducts,
+      bodyCalculating: resultHealthyData.bodyCalculating,
+      dailyRate: resultHealthyData.dailyRate,
     },
   });
 }
