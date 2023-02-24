@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const controllers = require("../../controllers/daily");
-const { dailyRateTemplate } = require("../../controllers/daily/getDailyRate");
+const { dailyRateTemplate } = require("../../models/healthyData");
 const { asyncWrapper } = require("../../utils");
 const { validateBody, auth, isValidId } = require("../../middleware");
 
