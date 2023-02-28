@@ -13,7 +13,7 @@ async function googleAuth(req, res) {
   await User.findByIdAndUpdate(_id, { token });
 
   res.redirect(
-    `http://localhost:3000/?token=${token}&_id=${_id}&email=${email}&name=${name}`
+    `https://slim-mom-static.onrender.com/?token=${token}&_id=${_id}&email=${email}&name=${name}`
   );
 }
 module.exports = googleAuth;
