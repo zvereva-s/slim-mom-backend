@@ -11,7 +11,7 @@
   - count sum of calories, fat, protein, carbohydrates for the day
   - get nor recommended products
 
-*Used in work: 
+*Used in work:* 
   - Node.js
   - Mongo db
   - Joi validation
