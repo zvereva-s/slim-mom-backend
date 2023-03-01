@@ -24,7 +24,7 @@ router.post(
 router.get("/current", auth, asyncWrapper(controllers.getCurrent));
 
 //! logout //
-router.post("/logout", asyncWrapper(controllers.logout));
+router.post("/logout", auth, asyncWrapper(controllers.logout));
 
 //! google auth
 router.get(
