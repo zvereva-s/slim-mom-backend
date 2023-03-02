@@ -191,7 +191,7 @@ _GOOGLE CLOUD CONSOLE_
         ![](https://user-images.githubusercontent.com/96833638/222378253-14f2ac18-abc4-4d48-bbeb-ad618b224528.png)
         
         2. Create credentials
-        ![](http://joxi.ru/EA455lPt09lRPr)
+        ![](https://joxi.ru/EA455lPt09lRPr.jpg)
         
         3. Add settings
         ![](http://joxi.ru/gmvGGx4u0zjg62)
