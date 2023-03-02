@@ -13,7 +13,7 @@ async function googleAuth(req, res) {
   await User.findByIdAndUpdate(_id, { token });
 
   res.redirect(
-    `https://slim-mom-zvereva-s.vercel.app/?token=${token}&_id=${_id}&email=${email}&name=${name}`
+    `${process.env.WEB_URL}/?token=${token}&_id=${_id}&email=${email}&name=${name}`
   );
 }
 module.exports = googleAuth;
