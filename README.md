@@ -194,7 +194,7 @@ _GOOGLE CLOUD CONSOLE_
 <img src="https://joxi.ru/EA455lPt09lRPr.jpg" width="500" />
         
 ***3. Add settings*** <br>
-<img src="http://joxi.ru/gmvGGx4u0zjg62" width="500" />
+<img src="http://dl4.joxi.net/drive/2023/03/02/0055/2876/3660604/04/f3e7c650cf.jpg" width="500" />
         
         
 
