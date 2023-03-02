@@ -186,3 +186,15 @@ _WEB_URL - link to web aplication_
         example: https://locahost:3000/
 
 _GOOGLE CLOUD CONSOLE_
+        
+        1. Create new project 
+        ![](https://user-images.githubusercontent.com/96833638/222378253-14f2ac18-abc4-4d48-bbeb-ad618b224528.png)
+        
+        2. Create credentials
+        ![](http://joxi.ru/EA455lPt09lRPr)
+        
+        3. Add settings
+        ![](http://joxi.ru/gmvGGx4u0zjg62)
+        
+        
+
