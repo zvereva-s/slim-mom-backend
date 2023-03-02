@@ -41,6 +41,7 @@ async function signup(req, res) {
     user: {
       name: resultUser.name,
       email: resultUser.email,
+      id: resultUser._id,
     },
     healthyData: {
       notAllowedProducts: resultHealthyData.notAllowedProducts,
