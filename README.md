@@ -187,13 +187,13 @@ _WEB_URL - link to web application_
 
 _GOOGLE CLOUD CONSOLE_
         
-1. Create new project 
+***1. Create new project***
 ![](https://user-images.githubusercontent.com/96833638/222378253-14f2ac18-abc4-4d48-bbeb-ad618b224528.png)
         
-2. Create credentials
+***2. Create credentials***
 ![](https://joxi.ru/EA455lPt09lRPr.jpg)
         
-3. Add settings
+***3. Add settings***
 ![](http://joxi.ru/gmvGGx4u0zjg62)
         
         
