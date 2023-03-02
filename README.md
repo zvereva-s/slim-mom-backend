@@ -187,14 +187,14 @@ _WEB_URL - link to web application_
 
 _GOOGLE CLOUD CONSOLE_
         
-***1. Create new project***
-![](https://user-images.githubusercontent.com/96833638/222378253-14f2ac18-abc4-4d48-bbeb-ad618b224528.png)
+***1. Create new project*** <br>
+<img src="https://user-images.githubusercontent.com/96833638/222378253-14f2ac18-abc4-4d48-bbeb-ad618b224528.png" width="500" />
         
-***2. Create credentials***
-![](https://joxi.ru/EA455lPt09lRPr.jpg)
+***2. Create credentials*** <br>
+<img src="https://joxi.ru/EA455lPt09lRPr.jpg" width="500" />
         
-***3. Add settings***
-![](http://joxi.ru/gmvGGx4u0zjg62)
+***3. Add settings*** <br>
+<img src="http://joxi.ru/gmvGGx4u0zjg62" width="500" />
         
         
 
