@@ -181,20 +181,20 @@ _APP_URL - link to your server link_
         example: https://localhost:3003/api/auth/google
         example: https://localhost:3003/api/auth/google/callback
 
-_WEB_URL - link to web aplication_
+_WEB_URL - link to web application_
 
         example: https://locahost:3000/
 
 _GOOGLE CLOUD CONSOLE_
         
-        1. Create new project 
-        ![](https://user-images.githubusercontent.com/96833638/222378253-14f2ac18-abc4-4d48-bbeb-ad618b224528.png)
+1. Create new project 
+![](https://user-images.githubusercontent.com/96833638/222378253-14f2ac18-abc4-4d48-bbeb-ad618b224528.png)
         
-        2. Create credentials
-        ![](https://joxi.ru/EA455lPt09lRPr.jpg)
+2. Create credentials
+![](https://joxi.ru/EA455lPt09lRPr.jpg)
         
-        3. Add settings
-        ![](http://joxi.ru/gmvGGx4u0zjg62)
+3. Add settings
+![](http://joxi.ru/gmvGGx4u0zjg62)
         
         
 
